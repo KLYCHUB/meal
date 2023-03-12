@@ -114,49 +114,43 @@ class _AyetOkumaEkraniState extends State<AyetOkumaEkrani> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Expanded(
-                                    flex: 9,
-                                    child: Container(
-                                      alignment: Alignment.center,
-                                      decoration: BoxDecoration(
-                                        color: ProjectColor().ddddddColor,
-                                        borderRadius: Decarations().circular25,
-                                      ),
-                                      width: MediaQuery.of(context).size.width /
-                                          1.1,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(16.0),
-                                        child: SingleChildScrollView(
-                                          child: SureText(
-                                            nextScreenText:
-                                                SureAyet().getListItem(
-                                              widget.pageIndex,
-                                              index,
-                                            ),
-                                            fontSize: ProjectNum().titleMedium,
-                                            fontWeight: FontWeight.w700,
-                                            letterSpacing: ProjectNum().zero,
-                                            maxLines: 100,
-                                            overflow: TextOverflow.visible,
+                                  Container(
+                                    alignment: Alignment.center,
+                                    decoration: BoxDecoration(
+                                      color: ProjectColor().ddddddColor,
+                                      borderRadius: Decarations().circular25,
+                                    ),
+                                    width:
+                                        MediaQuery.of(context).size.width / 1.1,
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(16.0),
+                                      child: SingleChildScrollView(
+                                        child: SureText(
+                                          nextScreenText:
+                                              SureAyet().getListItem(
+                                            widget.pageIndex,
+                                            index,
                                           ),
+                                          fontSize: ProjectNum().titleMedium,
+                                          fontWeight: FontWeight.w700,
+                                          letterSpacing: ProjectNum().zero,
+                                          maxLines: 100,
+                                          overflow: TextOverflow.visible,
                                         ),
                                       ),
                                     ),
                                   ),
-                                  Expanded(
-                                    flex: 1,
-                                    child: Padding(
-                                      padding: ProjectEdgeInsets().top20,
-                                      child: Text(
-                                        "${index + 1}. Ayet",
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .titleMedium
-                                            ?.copyWith(
-                                              color: ProjectColor().ddddddColor,
-                                              fontWeight: FontWeight.w800,
-                                            ),
-                                      ),
+                                  Padding(
+                                    padding: ProjectEdgeInsets().top20,
+                                    child: Text(
+                                      "${index + 1}. Ayet",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleMedium
+                                          ?.copyWith(
+                                            color: ProjectColor().ddddddColor,
+                                            fontWeight: FontWeight.w800,
+                                          ),
                                     ),
                                   ),
                                 ],
