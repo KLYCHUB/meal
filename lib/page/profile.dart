@@ -29,8 +29,8 @@ class _ProfileState extends State<Profile> {
         actions: [
           Padding(
             padding: ProjectEdgeInsets().def,
-            child: const AppBarButtonLink(
-              linkUrl: 'https://flutter.dev',
+            child:  AppBarButtonLink(
+              linkUrl: Karma().web,
               // ignore: deprecated_member_use
               icon: FontAwesomeIcons.earth,
             ),
@@ -38,95 +38,55 @@ class _ProfileState extends State<Profile> {
         ],
       ),
       body: Padding(
-        padding: ProjectEdgeInsets().h60v30 / 2,
+        padding: ProjectEdgeInsets().h60v30 / 1.5,
         child: Column(
-          children: [
-            Expanded(
-              flex: 1,
-              child: Container(
-                alignment: Alignment.bottomLeft,
-                child: Text(
-                  "Sağ üst butondan daha fazla bilgiye ve bize ulaşabilirsiniz",
-                  textAlign: TextAlign.start,
-                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                      color: ProjectColor().ddddddColor,
-                      fontWeight: FontWeight.w800),
-                ),
-              ),
-            ),
-            const Spacer(),
-            Expanded(
-              flex: 3,
-              child: Container(
-                alignment: Alignment.center,
-                child: Text(
-                  "Açılış ekranından sonra aşılan sayfada kitap işareti bulunan buton surelerin olduğu sayfayı açar diğer buton ise karşınıza rastgele ayetler getirir",
-                  textAlign: TextAlign.start,
-                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        color: ProjectColor().ddddddColor,
-                        fontWeight: FontWeight.w800,
-                      ),
-                ),
-              ),
-            ),
-            Expanded(
-              flex: 3,
-              child: Container(
-                alignment: Alignment.center,
-                child: Text(
-                  "1. Buton 'Cami' sizin önünüze rastgele ayetler getirir. Yenileme tuşuna bastığınız da ise farklı ayaetler gösterir",
-                  textAlign: TextAlign.start,
-                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                      color: ProjectColor().ddddddColor,
-                      fontWeight: FontWeight.w800),
-                ),
-              ),
-            ),
-            Expanded(
-              flex: 3,
-              child: Container(
-                alignment: Alignment.center,
-                child: Text(
-                  "2. Buton 'Kalem' size not defteri sayfasını açıyor. Bu sayfa da istediğiniz notu alabilirsiniz. Notları silmek içinse notu sağa ya da sola kkaydırabilirsiniz",
-                  textAlign: TextAlign.start,
-                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                      color: ProjectColor().ddddddColor,
-                      fontWeight: FontWeight.w800),
-                ),
-              ),
-            ),
-            Expanded(
-              flex: 3,
-              child: Container(
-                alignment: Alignment.center,
-                child: Text(
-                  "3. Buton 'Report' Sureler de veya ayetlerde yanlışlık görürseniz bize e psota aracılığı ile bize bildirmeniz. Buna çok dikkat edin bu bizim için büyük bir sorumluluk ve yanlış yapmak istemiyoruz",
-                  textAlign: TextAlign.start,
-                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                        color: ProjectColor().ddddddColor,
-                        fontWeight: FontWeight.w800,
-                      ),
-                ),
-              ),
-            ),
-            Expanded(
-              flex: 3,
-              child: Container(
-                alignment: Alignment.center,
-                child: Text(
-                  "Ayet okurken üsteki arama çubuğundan ayet numarasını aratmanız yeterlidir. Sure ararken ise surenin adını yazmalısınız",
-                  textAlign: TextAlign.start,
-                  style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                        color: ProjectColor().ddddddColor,
-                        fontWeight: FontWeight.w800,
-                      ),
-                ),
-              ),
-            ),
+          children: const [
+            AboutText(
+                text:
+                    "Ayet okurken üsteki arama çubuğundan ayet numarasını aratmanız yeterlidir. Sure ararken ise surenin adını yazmalısınız"),
+            AboutText(
+                text:
+                    "Açılış ekranından sonra aşılan sayfada kitap işareti bulunan buton surelerin olduğu sayfayı açar diğer buton ise karşınıza rastgele ayetler getirir"),
+            AboutText(
+                text:
+                    "1. Buton 'Cami' sizin önünüze rastgele ayetler getirir. Yenileme tuşuna bastığınız da ise farklı ayaetler gösterir"),
+            AboutText(
+                text:
+                    "2. Buton 'Kalem' size not defteri sayfasını açıyor. Bu sayfa da istediğiniz notu alabilirsiniz. Notları silmek içinse notu sağa ya da sola kkaydırabilirsiniz"),
+            AboutText(
+                text:
+                    "3. Buton 'Report' Sureler de veya ayetlerde yanlışlık görürseniz bize e psota aracılığı ile bize bildirmeniz. Buna çok dikkat edin bu bizim için büyük bir sorumluluk ve yanlış yapmak istemiyoruz"),
           ],
         ),
       ),
       bottomNavigationBar: const ProjectBottomNavBar(),
+    );
+  }
+}
+
+class AboutText extends StatelessWidget {
+  const AboutText({
+    super.key,
+    required this.text,
+  });
+
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      flex: 2,
+      child: Container(
+        alignment: Alignment.center,
+        child: Text(
+          text,
+          textAlign: TextAlign.center,
+          style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                color: ProjectColor().ddddddColor,
+                fontWeight: FontWeight.w800,
+              ),
+        ),
+      ),
     );
   }
 }

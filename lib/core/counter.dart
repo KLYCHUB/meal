@@ -67,16 +67,14 @@ class _CustomCounterState extends State<CustomCounter> {
           onTap: () {
             _counterUpdate(false);
           },
-          child: const _CounterUpdateContainer("SIFIRLA"),
+          child: const _CounterUpdateContainer(icon: Icons.delete),
         ),
         _counterText(),
         InkWell(
           onTap: () {
             _counterUpdate(true);
           },
-          child: const _CounterUpdateContainer(
-            "ARTTIR",
-          ),
+          child: const _CounterUpdateContainer(icon: Icons.add_circle_outlined),
         ),
       ],
     );
@@ -97,40 +95,31 @@ class _CustomCounterState extends State<CustomCounter> {
 }
 
 class _CounterUpdateContainer extends StatelessWidget {
-  const _CounterUpdateContainer(this.minusPlus);
+  const _CounterUpdateContainer({required this.icon});
 
-  final String minusPlus;
+  final IconData icon;
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        alignment: Alignment.center,
-        height: ProjectNum().blurRadius * 8,
-        decoration: BoxDecoration(
-          borderRadius: Decarations().circular5,
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              ProjectColor().ddddddColor,
-              ProjectColor().ddddddColor,
-            ],
-          ),
+    return Container(
+      alignment: Alignment.center,
+      height: ProjectNum().blurRadius * 8,
+      width: MediaQuery.of(context).size.width / 2.35,
+      decoration: BoxDecoration(
+        borderRadius: Decarations().circular5,
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            ProjectColor().ddddddColor,
+            ProjectColor().ddddddColor,
+          ],
         ),
-        child: RepaintBoundary(
-          child: Padding(
-            padding: ProjectEdgeInsets().def,
-            child: Text(
-              minusPlus,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: ProjectColor().indicatorBG,
-                fontSize: ProjectNum().titleMedium * 1,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-          ),
+      ),
+      child: RepaintBoundary(
+        child: Padding(
+          padding: ProjectEdgeInsets().def,
+          child: Icon(icon),
         ),
       ),
     );

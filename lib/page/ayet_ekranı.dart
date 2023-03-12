@@ -88,7 +88,7 @@ class _AyetOkumaEkraniState extends State<AyetOkumaEkrani> {
           ),
           SliverToBoxAdapter(
             child: SizedBox(
-              height: MediaQuery.of(context).size.width * 1.3,
+              height: MediaQuery.of(context).size.height / 1.4,
               child: ListView.builder(
                 physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
@@ -110,32 +110,35 @@ class _AyetOkumaEkraniState extends State<AyetOkumaEkrani> {
                           child: Padding(
                             padding: ProjectEdgeInsets().vertical20,
                             child: FlipCard(
+                              alignment: Alignment.center,
                               front: Column(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Container(
-                                    alignment: Alignment.center,
-                                    decoration: BoxDecoration(
-                                      color: ProjectColor().ddddddColor,
-                                      borderRadius: Decarations().circular25,
-                                    ),
-                                    width:
-                                        MediaQuery.of(context).size.width / 1.1,
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(16.0),
-                                      child: SingleChildScrollView(
-                                        child: SureText(
-                                          nextScreenText:
-                                              SureAyet().getListItem(
-                                            widget.pageIndex,
-                                            index,
+                                  Expanded(
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      decoration: BoxDecoration(
+                                        color: ProjectColor().ddddddColor,
+                                        borderRadius: Decarations().circular25,
+                                      ),
+                                      width: MediaQuery.of(context).size.width /
+                                          1.1,
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(16.0),
+                                        child: SingleChildScrollView(
+                                          child: SureText(
+                                            nextScreenText:
+                                                SureAyet().getListItem(
+                                              widget.pageIndex,
+                                              index,
+                                            ),
+                                            fontSize: ProjectNum().titleMedium,
+                                            fontWeight: FontWeight.w700,
+                                            letterSpacing: ProjectNum().zero,
+                                            maxLines: 100,
+                                            overflow: TextOverflow.visible,
                                           ),
-                                          fontSize: ProjectNum().titleMedium,
-                                          fontWeight: FontWeight.w700,
-                                          letterSpacing: ProjectNum().zero,
-                                          maxLines: 100,
-                                          overflow: TextOverflow.visible,
                                         ),
                                       ),
                                     ),
