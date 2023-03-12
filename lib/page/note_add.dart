@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:meal/product/color/project_color.dart';
 import 'package:meal/product/util/constans.dart';
 import 'package:path_provider/path_provider.dart';
+import '../core/counter.dart';
 import 'ayet_ekranı.dart';
 
 class AddNote extends StatefulWidget {
@@ -178,7 +179,7 @@ class _AddNoteState extends State<AddNote> {
                         child: Padding(
                           padding: ProjectEdgeInsets().vertical20 / 2,
                           child: Icon(
-                            Icons.add,
+                            Icons.send,
                             color: ProjectColor().indicatorBG,
                           ),
                         ),
@@ -188,6 +189,10 @@ class _AddNoteState extends State<AddNote> {
                 ],
               ),
             ),
+            const Padding(
+              padding: EdgeInsets.only(bottom: 30),
+              child: CustomCounter(),
+            )
           ],
         ),
       ),

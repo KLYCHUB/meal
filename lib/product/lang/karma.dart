@@ -8,4 +8,5 @@ class Karma {
   final String body = 'Bburaya mesajınızı yazabilirsiniz.';
   final String web = 'https://klychub.github.io/';
   final String mail = 'klychub@gmail.com';
+  final String yelbegen = 'YELBEGEN SOFTWARE';
 }
