@@ -43,7 +43,7 @@ class _CustomCounterState extends State<CustomCounter> {
       });
     } else {
       setState(() {
-        _countValue_1 -= 1;
+        _countValue_1 = 0;
         _saveCountValue(); // save the count value when it changes
       });
       if (_countValue_1 < 0) {
@@ -67,7 +67,7 @@ class _CustomCounterState extends State<CustomCounter> {
           onTap: () {
             _counterUpdate(false);
           },
-          child: const _CounterUpdateContainer("-"),
+          child: const _CounterUpdateContainer("SIFIRLA"),
         ),
         _counterText(),
         InkWell(
@@ -75,7 +75,7 @@ class _CustomCounterState extends State<CustomCounter> {
             _counterUpdate(true);
           },
           child: const _CounterUpdateContainer(
-            "+",
+            "ARTTIR",
           ),
         ),
       ],
@@ -107,7 +107,6 @@ class _CounterUpdateContainer extends StatelessWidget {
       child: Container(
         alignment: Alignment.center,
         height: ProjectNum().blurRadius * 8,
-        width: ProjectNum().blurRadius * 8,
         decoration: BoxDecoration(
           borderRadius: Decarations().circular5,
           gradient: LinearGradient(
@@ -120,13 +119,16 @@ class _CounterUpdateContainer extends StatelessWidget {
           ),
         ),
         child: RepaintBoundary(
-          child: Text(
-            minusPlus,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: ProjectColor().indicatorBG,
-              fontSize: ProjectNum().titleLarge * 1.2,
-              fontWeight: FontWeight.w500,
+          child: Padding(
+            padding: ProjectEdgeInsets().def,
+            child: Text(
+              minusPlus,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: ProjectColor().indicatorBG,
+                fontSize: ProjectNum().titleMedium * 1,
+                fontWeight: FontWeight.w500,
+              ),
             ),
           ),
         ),
