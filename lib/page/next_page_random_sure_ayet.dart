@@ -19,55 +19,223 @@ class NextPageRandomText extends StatelessWidget {
     SureAyet ayetler = SureAyet();
     Random random = Random();
 
-    List<List<String>> allLists = [ayetler.fatiha];
+    List<List<String>> allLists = [
+      ayetler.fatiha,
+      ayetler.bakara,
+      ayetler.nisa,
+      ayetler.aliimran,
+    ];
+
     int randomListIndex = random.nextInt(allLists.length);
     List<String> randomList = allLists[randomListIndex];
+
+    // Check if the list is empty
+    while (randomList.isEmpty) {
+      randomListIndex = random.nextInt(allLists.length);
+      randomList = allLists[randomListIndex];
+    }
+
     String randomElement = randomList[random.nextInt(randomList.length)];
     int randomElementIndex = randomList.indexOf(randomElement);
-    String listName = String.fromCharCode(97 + randomListIndex);
+    String listName = '';
 
-    if (randomList.length > 1) {
-      switch (listName) {
-        case 'a':
-          listName = 'Fatiha';
-          break;
-        case 'b':
-          listName = 'Liste B';
-          break;
-        case 'c':
-          listName = 'Liste C';
-          break;
-        case 'd':
-          listName = 'Liste D';
-          break;
-        case 'e':
-          listName = 'Liste E';
-          break;
-        case 'f':
-          listName = 'Liste E';
-          break;
-        case 'g':
-          listName = 'FATİHA';
-          break;
-        case 'h':
-          listName = 'Liste B';
-          break;
-        case 'i':
-          listName = 'Liste C';
-          break;
-        case 'j':
-          listName = 'Liste D';
-          break;
-        case 'k':
-          listName = 'Liste E';
-          break;
-        case 'l':
-          listName = 'Liste E';
-          break;
+    switch (randomListIndex) {
+      case 0:
+        listName = 'Fâtiha';
+        break;
+      case 1:
+        listName = 'Bakara';
+        break;
+      case 2:
+        listName = 'Âl-i İmrân';
+        break;
+      case 3:
+        listName = 'Nisâ';
+        break;
+      case 4:
+        listName = 'Mâide';
+        break;
+      case 5:
+        listName = 'En\'âm';
+        break;
+      case 6:
+        listName = 'Araf';
+        break;
+      case 7:
+        listName = 'Enfâl';
+        break;
+      case 8:
+        listName = 'Tevbe';
+        break;
+      case 9:
+        listName = 'Yunus';
+        break;
+      case 10:
+        listName = 'Hud';
+        break;
+      case 11:
+        listName = 'Yusuf';
+        break;
+      case 12:
+        listName = 'Rad';
+        break;
+      case 13:
+        listName = 'İbrahim';
+        break;
+      case 14:
+        listName = 'Hicr';
+        break;
+      case 15:
+        listName = 'Nahl';
+        break;
+      case 16:
+        listName = 'İsrâ';
+        break;
+      case 17:
+        listName = 'Kehf';
+        break;
+      case 18:
+        listName = 'Meryem';
+        break;
+      case 19:
+        listName = 'Tâhâ';
+        break;
+      case 20:
+        listName = 'Enbiyâ';
+        break;
+      case 21:
+        listName = 'Hac';
+        break;
+      case 22:
+        listName = 'Muminun';
+        break;
+      case 23:
+        listName = 'Nûr';
+        break;
+      case 24:
+        listName = 'Furkan';
+        break;
+      case 25:
+        listName = 'Şuarâ';
+        break;
+      case 26:
+        listName = 'Neml';
+        break;
+      case 27:
+        listName = 'Kasas';
+        break;
+      case 28:
+        listName = 'Ankebut';
+        break;
+      case 29:
+        listName = 'Rum';
+        break;
+      case 30:
+        listName = 'Lokman';
+        break;
+      case 31:
+        listName = 'Secde';
+        break;
+      case 32:
+        listName = 'Ahzab';
+        break;
+      case 33:
+        listName = 'Sebe';
+        break;
+      case 34:
+        listName = 'Fâtır';
+        break;
+      case 35:
+        listName = 'Yâsin';
+        break;
+      case 36:
+        listName = 'Sâffât';
+        break;
+      case 37:
+        listName = 'Sâd';
+        break;
+      case 38:
+        listName = 'Zümer';
+        break;
+      case 39:
+        listName = 'Mümin';
+        break;
+      case 40:
+        listName = 'Fussilet';
+        break;
+      case 41:
+        listName = 'Şûrâ';
+        break;
+      case 42:
+        listName = 'Zuhruf';
+        break;
+      case 43:
+        listName = 'Duhân';
+        break;
+      case 44:
+        listName = 'Câsiye';
+        break;
+      case 45:
+        listName = 'Ahkaf';
+        break;
+      case 46:
+        listName = 'Muhammed';
+        break;
+      case 47:
+        listName = 'Fetih';
+        break;
+      case 48:
+        listName = 'Hucurât';
+        break;
+      case 49:
+        listName = 'Kaf';
+        break;
+      case 50:
+        listName = 'Zâriyât';
+        break;
+      case 51:
+        listName = 'Tur';
+        break;
+      case 52:
+        listName = 'Necm';
+        break;
+      case 53:
+        listName = 'Kamer';
+        break;
+      case 54:
+        listName = 'Rahmân';
+        break;
+      case 55:
+        listName = 'Vâkıa';
+        break;
+      case 56:
+        listName = 'Hadid';
+        break;
+      case 57:
+        listName = 'Mücadele';
+        break;
+      case 58:
+        listName = 'Haşr';
+        break;
+      case 59:
+        listName = 'Mümtehine';
+        break;
+      case 60:
+        listName = 'Saff';
+        break;
+      case 61:
+        listName = 'Cuma';
+        break;
+      case 62:
+        listName = 'Münafikun';
+        break;
+      case 63:
+        listName = 'Tegabun';
+        break;
+        
 
-        default:
-          break;
-      }
+      default:
+        break;
     }
 
     final double mediaQueryWith = MediaQuery.of(context).size.width;
