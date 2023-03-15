@@ -232,7 +232,159 @@ class NextPageRandomText extends StatelessWidget {
       case 63:
         listName = 'Tegabun';
         break;
-        
+      case 64:
+        listName = 'Talak';
+        break;
+      case 65:
+        listName = 'Tahrim';
+        break;
+      case 66:
+        listName = 'Mülk';
+        break;
+      case 67:
+        listName = 'Kalem';
+        break;
+      case 68:
+        listName = 'Hakka';
+        break;
+      case 69:
+        listName = 'Mearic';
+        break;
+      case 70:
+        listName = 'Nuh';
+        break;
+      case 71:
+        listName = 'Cin';
+        break;
+      case 72:
+        listName = 'Müzzemmil';
+        break;
+      case 73:
+        listName = 'Müddessir';
+        break;
+      case 74:
+        listName = 'Kıyamet';
+        break;
+      case 75:
+        listName = 'İnsan';
+        break;
+      case 76:
+        listName = 'Mürselat';
+        break;
+      case 77:
+        listName = 'Nebe';
+        break;
+      case 78:
+        listName = 'Naziat';
+        break;
+      case 79:
+        listName = 'Abese';
+        break;
+      case 80:
+        listName = 'Tekvir';
+        break;
+      case 81:
+        listName = 'İnfitar';
+        break;
+      case 82:
+        listName = 'Mutaffifin';
+        break;
+      case 83:
+        listName = 'İnşikak';
+        break;
+      case 84:
+        listName = 'Buruc';
+        break;
+      case 85:
+        listName = 'Tariq';
+        break;
+      case 86:
+        listName = "A'la";
+        break;
+      case 87:
+        listName = 'Gasiye';
+        break;
+      case 88:
+        listName = 'Fecr';
+        break;
+      case 89:
+        listName = 'Beled';
+        break;
+      case 90:
+        listName = 'Şems';
+        break;
+      case 91:
+        listName = 'Leyl';
+        break;
+      case 92:
+        listName = 'Duha';
+        break;
+      case 93:
+        listName = 'İnşirah';
+        break;
+      case 94:
+        listName = 'Tin';
+        break;
+      case 95:
+        listName = 'Alak';
+        break;
+      case 96:
+        listName = 'Kadir';
+        break;
+      case 97:
+        listName = 'Beyyine';
+        break;
+      case 98:
+        listName = 'Zilzal';
+        break;
+      case 99:
+        listName = 'Adiyat';
+        break;
+      case 100:
+        listName = 'Karia';
+        break;
+      case 101:
+        listName = 'Takasur';
+        break;
+      case 102:
+        listName = 'Asr';
+        break;
+      case 103:
+        listName = 'Humeze';
+        break;
+      case 104:
+        listName = 'Fil';
+        break;
+      case 105:
+        listName = 'Kureyş';
+        break;
+      case 106:
+        listName = 'Maun';
+        break;
+      case 107:
+        listName = 'Kevser';
+        break;
+      case 108:
+        listName = 'Kafirun';
+        break;
+      case 109:
+        listName = 'Nasr';
+        break;
+      case 110:
+        listName = 'Mescid';
+        break;
+      case 111:
+        listName = 'İhlas';
+        break;
+      case 112:
+        listName = 'Felak';
+        break;
+      case 113:
+        listName = 'Nas';
+        break;
+      case 114:
+        listName = 'Fatiha';
+        break;
 
       default:
         break;

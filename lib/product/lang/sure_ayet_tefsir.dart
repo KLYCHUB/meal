@@ -501,9 +501,7 @@ class SureAyet {
     "Ey iman edenler! Sabredin, kararlılıkta yarışın, düşmana karşı hazırlıklı olun (birbirinize dayanıp bağlanın), Allah’a karşı gelmekten sakının ki başarıya ulaşabilesiniz.",
   ];
 
-  List<String> nisa = [
-  
-  ];
+  List<String> nisa = [];
 
   String getListItem(int pageIndex, int index) {
     if (pageIndex == 0) {
@@ -515,9 +513,6 @@ class SureAyet {
     } else if (pageIndex == 2) {
       pageIndex = 2;
       return aliimran[index];
-    } else if (pageIndex == 3) {
-      pageIndex = 3;
-      return nisa[index];
     } else {
       return "";
     }
@@ -530,8 +525,6 @@ class SureAyet {
       return bakara.length;
     } else if (pageIndex == 2) {
       return aliimran.length;
-    } else if (pageIndex == 3) {
-      return nisa.length;
     } else {
       return 0;
     }
