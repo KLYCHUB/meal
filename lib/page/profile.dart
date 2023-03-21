@@ -18,18 +18,18 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ProjectColor().indicatorBG,
+      backgroundColor: ProjectColor().leylak,
       appBar: AppBar(
         centerTitle: true,
         elevation: ProjectNum().zero,
         automaticallyImplyLeading: false,
-        backgroundColor: ProjectColor().indicatorBG,
+        backgroundColor: ProjectColor().leylak,
         title: Text(Karma().yelbegen),
         leading: const ArrowLeft(),
         actions: [
           Padding(
             padding: ProjectEdgeInsets().def,
-            child:  AppBarButtonLink(
+            child: AppBarButtonLink(
               linkUrl: Karma().web,
               // ignore: deprecated_member_use
               icon: FontAwesomeIcons.earth,
@@ -40,23 +40,7 @@ class _ProfileState extends State<Profile> {
       body: Padding(
         padding: ProjectEdgeInsets().h60v30 / 1.5,
         child: Column(
-          children: const [
-            AboutText(
-                text:
-                    "Ayet okurken üsteki arama çubuğundan ayet numarasını aratmanız yeterlidir. Sure ararken ise surenin adını yazmalısınız"),
-            AboutText(
-                text:
-                    "Açılış ekranından sonra aşılan sayfada kitap işareti bulunan buton surelerin olduğu sayfayı açar diğer buton ise karşınıza rastgele ayetler getirir"),
-            AboutText(
-                text:
-                    "1. Buton 'Cami' sizin önünüze rastgele ayetler getirir. Yenileme tuşuna bastığınız da ise farklı ayaetler gösterir"),
-            AboutText(
-                text:
-                    "2. Buton 'Kalem' size not defteri sayfasını açıyor. Bu sayfa da istediğiniz notu alabilirsiniz. Notları silmek içinse notu sağa ya da sola kkaydırabilirsiniz"),
-            AboutText(
-                text:
-                    "3. Buton 'Report' Sureler de veya ayetlerde yanlışlık görürseniz bize e psota aracılığı ile bize bildirmeniz. Buna çok dikkat edin bu bizim için büyük bir sorumluluk ve yanlış yapmak istemiyoruz"),
-          ],
+          children: const [],
         ),
       ),
       bottomNavigationBar: const ProjectBottomNavBar(),

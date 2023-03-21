@@ -79,10 +79,22 @@ class _AddNoteState extends State<AddNote> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ProjectColor().indicatorBG,
+      backgroundColor: ProjectColor().leylak,
       appBar: AppBar(
+        leading: const ArrowLeft(),
         centerTitle: true,
-        title: Text(widget.title),
+        title: Text(
+          widget.title,
+          style: TextStyle(
+            shadows: [
+              Shadow(
+                color: ProjectColor().black2,
+                offset: const Offset(0, 0),
+                blurRadius: ProjectNum().blurRadius * 2,
+              ),
+            ],
+          ),
+        ),
         elevation: ProjectNum().zero,
         actions: const [PersonButton()],
         backgroundColor: ProjectColor().transparent,

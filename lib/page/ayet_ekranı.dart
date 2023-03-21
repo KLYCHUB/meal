@@ -30,7 +30,7 @@ class _AyetOkumaEkraniState extends State<AyetOkumaEkrani> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ProjectColor().indicatorBG,
+      backgroundColor: ProjectColor().leylak,
       body: CustomScrollView(
         physics: const BouncingScrollPhysics(),
         slivers: [
@@ -38,7 +38,7 @@ class _AyetOkumaEkraniState extends State<AyetOkumaEkrani> {
             bottom: AppBar(
               elevation: ProjectNum().zero,
               automaticallyImplyLeading: false,
-              backgroundColor: ProjectColor().indicatorBG,
+              backgroundColor: ProjectColor().leylak,
               title: Padding(
                 padding: ProjectEdgeInsets().textFieldButton,
                 child: SizedBox(
@@ -80,9 +80,20 @@ class _AyetOkumaEkraniState extends State<AyetOkumaEkrani> {
             pinned: true,
             floating: true,
             centerTitle: true,
-            title: Text(Karma().bismillah),
+            title: Text(
+              Karma().bismillah,
+              style: TextStyle(
+                shadows: [
+                  Shadow(
+                    color: ProjectColor().black2,
+                    offset: const Offset(0, 0),
+                    blurRadius: ProjectNum().blurRadius * 2,
+                  ),
+                ],
+              ),
+            ),
             expandedHeight: ProjectNum().height120,
-            backgroundColor: ProjectColor().indicatorBG,
+            backgroundColor: ProjectColor().leylak,
             leading: const ArrowLeft(),
             actions: const [PersonButton()],
           ),
@@ -115,30 +126,36 @@ class _AyetOkumaEkraniState extends State<AyetOkumaEkrani> {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Expanded(
-                                    child: Container(
-                                      alignment: Alignment.center,
-                                      decoration: BoxDecoration(
-                                        color: ProjectColor().ddddddColor,
-                                        borderRadius: Decarations().circular25,
-                                      ),
-                                      width: MediaQuery.of(context).size.width /
-                                          1.1,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(16.0),
-                                        child: SingleChildScrollView(
-                                          child: SureText(
-                                            nextScreenText:
-                                                SureAyet().getListItem(
-                                              widget.pageIndex,
-                                              index,
-                                            ),
-                                            fontSize: ProjectNum().titleMedium,
-                                            fontWeight: FontWeight.w700,
-                                            letterSpacing: ProjectNum().zero,
-                                            maxLines: 100,
-                                            overflow: TextOverflow.visible,
+                                  Container(
+                                    alignment: Alignment.center,
+                                    decoration: BoxDecoration(
+                                      color: ProjectColor().ddddddColor,
+                                      borderRadius: Decarations().circular25,
+                                      boxShadow: [
+                                        BoxShadow(
+                                          blurRadius:
+                                              ProjectNum().blurRadius * 2,
+                                          color: ProjectColor().black2,
+                                          offset: const Offset(0, 0),
+                                        ),
+                                      ],
+                                    ),
+                                    width:
+                                        MediaQuery.of(context).size.width / 1.1,
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(16.0),
+                                      child: SingleChildScrollView(
+                                        child: SureText(
+                                          nextScreenText:
+                                              SureAyet().getListItem(
+                                            widget.pageIndex,
+                                            index,
                                           ),
+                                          fontSize: ProjectNum().titleMedium,
+                                          fontWeight: FontWeight.w700,
+                                          letterSpacing: ProjectNum().zero,
+                                          maxLines: 100,
+                                          overflow: TextOverflow.visible,
                                         ),
                                       ),
                                     ),
@@ -162,6 +179,13 @@ class _AyetOkumaEkraniState extends State<AyetOkumaEkrani> {
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(
                                   color: ProjectColor().ddddddColor,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      blurRadius: ProjectNum().blurRadius * 2,
+                                      color: ProjectColor().black2,
+                                      offset: const Offset(0, 0),
+                                    ),
+                                  ],
                                 ),
                                 width: MediaQuery.of(context).size.width / 1.1,
                                 child: Image.asset(
@@ -210,6 +234,13 @@ class PersonButton extends StatelessWidget {
       icon: Icon(
         Icons.person,
         size: ProjectNum().blurRadius * 6,
+        shadows: [
+          BoxShadow(
+            blurRadius: ProjectNum().blurRadius * 2,
+            color: ProjectColor().black2,
+            offset: const Offset(0, 0),
+          ),
+        ],
       ),
     );
   }
@@ -226,6 +257,13 @@ class ArrowLeft extends StatelessWidget {
       icon: Icon(
         Icons.arrow_circle_left_rounded,
         size: ProjectNum().blurRadius * 6,
+        shadows: [
+          BoxShadow(
+            blurRadius: ProjectNum().blurRadius * 2,
+            color: ProjectColor().black2,
+            offset: const Offset(0, 0),
+          ),
+        ],
       ),
       onPressed: () {
         Navigator.of(context).pop();

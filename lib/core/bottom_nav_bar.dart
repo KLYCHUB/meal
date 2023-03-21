@@ -21,9 +21,15 @@ class _ProjectBottomNavBarState extends State<ProjectBottomNavBar> {
       padding: ProjectEdgeInsets().h60v30,
       child: Container(
         decoration: BoxDecoration(
-          color: ProjectColor().ddddddColor,
-          borderRadius: Decarations().circular25,
-        ),
+            color: ProjectColor().ddddddColor,
+            borderRadius: Decarations().circular25,
+            boxShadow: [
+              BoxShadow(
+                color: ProjectColor().black2,
+                blurRadius: ProjectNum().blurRadius*2,
+                offset: const Offset(0, 0),
+              )
+            ]),
         child: BottomNavigationBar(
           elevation: ProjectNum().zero,
           selectedFontSize: ProjectNum().zero,

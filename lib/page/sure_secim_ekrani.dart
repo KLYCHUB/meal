@@ -27,7 +27,7 @@ class _SureSecimState extends State<SureSecim> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ProjectColor().indicatorBG,
+      backgroundColor: ProjectColor().leylak,
       body: CustomScrollView(
         physics: const BouncingScrollPhysics(),
         slivers: [
@@ -35,7 +35,7 @@ class _SureSecimState extends State<SureSecim> {
             bottom: AppBar(
               elevation: ProjectNum().zero,
               automaticallyImplyLeading: false,
-              backgroundColor: ProjectColor().indicatorBG,
+              backgroundColor: ProjectColor().leylak,
               title: SizedBox(
                 height: ProjectNum().height45,
                 child: _TextField(),
@@ -45,9 +45,20 @@ class _SureSecimState extends State<SureSecim> {
             pinned: true,
             floating: true,
             centerTitle: true,
-            title: Text(Karma().bismillah),
+            title: Text(
+              Karma().bismillah,
+              style: TextStyle(
+                shadows: [
+                  Shadow(
+                    color: ProjectColor().black2,
+                    offset: const Offset(0, 0),
+                    blurRadius: ProjectNum().blurRadius * 2,
+                  ),
+                ],
+              ),
+            ),
             expandedHeight: ProjectNum().height120,
-            backgroundColor: ProjectColor().indicatorBG,
+            backgroundColor: ProjectColor().leylak,
             leading: const ArrowLeft(),
             actions: const [PersonButton()],
           ),
@@ -84,6 +95,13 @@ class _SureSecimState extends State<SureSecim> {
                             decoration: BoxDecoration(
                               color: ProjectColor().ddddddColor,
                               borderRadius: Decarations().circular5,
+                              boxShadow: [
+                                BoxShadow(
+                                  blurRadius: ProjectNum().blurRadius,
+                                  color: ProjectColor().black2,
+                                  offset: const Offset(0, 3),
+                                ),
+                              ],
                             ),
                             child: SureText(
                               nextScreenText: sureText,
@@ -124,7 +142,7 @@ class _SureSecimState extends State<SureSecim> {
       decoration: InputDecoration(
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
-            color: ProjectColor().ddddddColor,
+            color: ProjectColor().black,
           ),
         ),
         hintStyle: TextStyle(
@@ -140,7 +158,9 @@ class _SureSecimState extends State<SureSecim> {
         hintText: Karma().textFieldText,
         fillColor: ProjectColor().ddddddColor,
         contentPadding: ProjectEdgeInsets().horizontal20,
-        labelStyle: TextStyle(color: ProjectColor().indicatorBG),
+        labelStyle: TextStyle(
+          color: ProjectColor().indicatorBG,
+        ),
       ),
     );
   }
@@ -155,6 +175,13 @@ class ArrowLeft extends StatelessWidget {
       icon: Icon(
         Icons.arrow_circle_left_rounded,
         size: ProjectNum().blurRadius * 6,
+        shadows: [
+          BoxShadow(
+            blurRadius: ProjectNum().blurRadius * 2,
+            color: ProjectColor().black2,
+            offset: const Offset(0, 0),
+          ),
+        ],
       ),
       onPressed: () {
         Navigator.of(context).push(MaterialPageRoute(
