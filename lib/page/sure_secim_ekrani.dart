@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:meal/page/next_page_random_sure_ayet.dart';
+import 'package:meal/core/custom_circular_indicator.dart';
 import '../core/bottom_nav_bar.dart';
 import '../core/sure_text.dart';
 import '../product/color/project_color.dart';
@@ -28,100 +28,111 @@ class _SureSecimState extends State<SureSecim> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ProjectColor().leylak,
-      body: CustomScrollView(
-        physics: const BouncingScrollPhysics(),
-        slivers: [
-          SliverAppBar(
-            bottom: AppBar(
-              elevation: ProjectNum().zero,
-              automaticallyImplyLeading: false,
-              backgroundColor: ProjectColor().leylak,
-              title: SizedBox(
-                height: ProjectNum().height45,
-                child: _TextField(),
-              ),
-            ),
-            snap: true,
-            pinned: true,
-            floating: true,
-            centerTitle: true,
-            title: Text(
-              Karma().bismillah,
-              style: TextStyle(
-                shadows: [
-                  Shadow(
-                    color: ProjectColor().black2,
-                    offset: const Offset(0, 0),
-                    blurRadius: ProjectNum().blurRadius * 2,
+      body: FutureBuilder(
+        future: Future.delayed(const Duration(milliseconds: 500)),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            return CustomScrollView(
+              physics: const BouncingScrollPhysics(),
+              slivers: [
+                SliverAppBar(
+                  bottom: AppBar(
+                    elevation: ProjectNum().zero,
+                    automaticallyImplyLeading: false,
+                    backgroundColor: ProjectColor().leylak,
+                    title: SizedBox(
+                      height: ProjectNum().height45,
+                      child: _TextField(),
+                    ),
                   ),
-                ],
-              ),
-            ),
-            expandedHeight: ProjectNum().height120,
-            backgroundColor: ProjectColor().leylak,
-            leading: const ArrowLeft(),
-            actions: const [PersonButton()],
-          ),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (BuildContext context, int index) {
-                final sureText = Sure().sureBilgileri[index];
+                  snap: true,
+                  pinned: true,
+                  floating: true,
+                  centerTitle: true,
+                  title: Text(
+                    Karma().bismillah,
+                    style: TextStyle(
+                      shadows: [
+                        Shadow(
+                          color: ProjectColor().black2,
+                          offset: const Offset(0, 0),
+                          blurRadius: ProjectNum().blurRadius * 2,
+                        ),
+                      ],
+                    ),
+                  ),
+                  expandedHeight: ProjectNum().height120,
+                  backgroundColor: ProjectColor().leylak,
+                  leading: const ArrowLeft(),
+                  actions: const [PersonButton()],
+                ),
+                SliverList(
+                  delegate: SliverChildBuilderDelegate(
+                    (BuildContext context, int index) {
+                      final sureText = Sure().sureBilgileri[index];
 
-                // Arama metni varsa ve aranılan metin bulunamazsa null döndürür
-                if (_searchController.text.isNotEmpty &&
-                    !sureText
-                        .toLowerCase()
-                        .contains(_searchController.text.toLowerCase())) {
-                  return const SizedBox.shrink();
-                }
+                      // Arama metni varsa ve aranılan metin bulunamazsa null döndürür
+                      if (_searchController.text.isNotEmpty &&
+                          !sureText
+                              .toLowerCase()
+                              .contains(_searchController.text.toLowerCase())) {
+                        return const SizedBox.shrink();
+                      }
 
-                return Row(
-                  children: [
-                    Expanded(
-                      child: Padding(
-                        padding: ProjectEdgeInsets().listSymetric,
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) {
-                                currentIndex = index;
-                                return AyetOkumaEkrani(pageIndex: index);
-                              },
-                            ));
-                          },
-                          child: Container(
-                            alignment: Alignment.center,
-                            height: ProjectNum().height45 * 2.5,
-                            decoration: BoxDecoration(
-                              color: ProjectColor().ddddddColor,
-                              borderRadius: Decarations().circular5,
-                              boxShadow: [
-                                BoxShadow(
-                                  blurRadius: ProjectNum().blurRadius,
-                                  color: ProjectColor().black2,
-                                  offset: const Offset(0, 3),
+                      return Row(
+                        children: [
+                          Expanded(
+                            child: Padding(
+                              padding: ProjectEdgeInsets().listSymetric,
+                              child: InkWell(
+                                onTap: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                    builder: (context) {
+                                      currentIndex = index;
+                                      return AyetOkumaEkrani(pageIndex: index);
+                                    },
+                                  ));
+                                },
+                                child: Container(
+                                  alignment: Alignment.center,
+                                  height: ProjectNum().height45 * 2.5,
+                                  decoration: BoxDecoration(
+                                    color: ProjectColor().ddddddColor,
+                                    borderRadius: Decarations().circular5,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        blurRadius: ProjectNum().blurRadius,
+                                        color: ProjectColor().black2,
+                                        offset: const Offset(0, 3),
+                                      ),
+                                    ],
+                                  ),
+                                  child: SureText(
+                                    nextScreenText: sureText,
+                                    fontWeight: FontWeight.w900,
+                                    letterSpacing: ProjectNum().zero,
+                                    fontSize: ProjectNum().titleMedium,
+                                    maxLines: 100,
+                                    overflow: TextOverflow.visible,
+                                  ),
                                 ),
-                              ],
-                            ),
-                            child: SureText(
-                              nextScreenText: sureText,
-                              fontWeight: FontWeight.w700,
-                              letterSpacing: ProjectNum().zero,
-                              fontSize: ProjectNum().titleMedium,
-                              maxLines: 100,
-                              overflow: TextOverflow.visible,
+                              ),
                             ),
                           ),
-                        ),
-                      ),
-                    ),
-                  ],
-                );
-              },
-              childCount: Sure().sureBilgileri.length,
-            ),
-          ),
-        ],
+                        ],
+                      );
+                    },
+                    childCount: Sure().sureBilgileri.length,
+                  ),
+                ),
+              ],
+            );
+          } else {
+            return ProjectCircularProgressIndicator(
+              mediaQueryWith: MediaQuery.of(context).size.width,
+            );
+          }
+        },
       ),
       bottomNavigationBar: const ProjectBottomNavBar(),
     );
@@ -184,11 +195,7 @@ class ArrowLeft extends StatelessWidget {
         ],
       ),
       onPressed: () {
-        Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) {
-            return const NextPageRandomText();
-          },
-        ));
+        Navigator.pop(context);
       },
     );
   }

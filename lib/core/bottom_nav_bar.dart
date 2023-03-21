@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:meal/core/custom_circular_indicator.dart';
 import 'package:meal/page/next_page_random_sure_ayet.dart';
 import 'package:meal/product/lang/karma.dart';
 import '../page/note_add.dart';
@@ -17,68 +18,78 @@ class ProjectBottomNavBar extends StatefulWidget {
 class _ProjectBottomNavBarState extends State<ProjectBottomNavBar> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: ProjectEdgeInsets().h60v30,
-      child: Container(
-        decoration: BoxDecoration(
-            color: ProjectColor().ddddddColor,
-            borderRadius: Decarations().circular25,
-            boxShadow: [
-              BoxShadow(
-                color: ProjectColor().black2,
-                blurRadius: ProjectNum().blurRadius*2,
-                offset: const Offset(0, 0),
-              )
-            ]),
-        child: BottomNavigationBar(
-          elevation: ProjectNum().zero,
-          selectedFontSize: ProjectNum().zero,
-          unselectedFontSize: ProjectNum().zero,
-          backgroundColor: ProjectColor().transparent,
-          selectedItemColor: ProjectColor().indicatorBG,
-          unselectedItemColor: ProjectColor().indicatorBG,
-          items: [
-            BottomNavigationBarItem(
-              icon: InkWell(
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) {
-                      return const NextPageRandomText();
-                    },
-                  ));
-                },
-                child: const Icon(Icons.mosque),
+    return FutureBuilder(
+      future: Future.delayed(const Duration(milliseconds: 500)),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          return Padding(
+            padding: ProjectEdgeInsets().h60v30,
+            child: Container(
+              decoration: BoxDecoration(
+                  color: ProjectColor().ddddddColor,
+                  borderRadius: Decarations().circular25,
+                  boxShadow: [
+                    BoxShadow(
+                      color: ProjectColor().black2,
+                      blurRadius: ProjectNum().blurRadius * 2,
+                      offset: const Offset(0, 0),
+                    )
+                  ]),
+              child: BottomNavigationBar(
+                elevation: ProjectNum().zero,
+                selectedFontSize: ProjectNum().zero,
+                unselectedFontSize: ProjectNum().zero,
+                backgroundColor: ProjectColor().transparent,
+                selectedItemColor: ProjectColor().indicatorBG,
+                unselectedItemColor: ProjectColor().indicatorBG,
+                items: [
+                  BottomNavigationBarItem(
+                    icon: InkWell(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) {
+                            return const NextPageRandomText();
+                          },
+                        ));
+                      },
+                      child: const Icon(Icons.mosque),
+                    ),
+                    label: "",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: InkWell(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) {
+                            return AddNote(title: Karma().not);
+                          },
+                        ));
+                      },
+                      child: Icon(
+                        Icons.edit_note_sharp,
+                        size: ProjectNum().blurRadius * 6,
+                      ),
+                    ),
+                    label: "",
+                  ),
+                  BottomNavigationBarItem(
+                    icon: InkWell(
+                      onTap: () {
+                        sendEmail();
+                      },
+                      child: const Icon(Icons.report),
+                    ),
+                    label: "",
+                  ),
+                ],
               ),
-              label: "",
             ),
-            BottomNavigationBarItem(
-              icon: InkWell(
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) {
-                      return AddNote(title: Karma().not);
-                    },
-                  ));
-                },
-                child: Icon(
-                  Icons.edit_note_sharp,
-                  size: ProjectNum().blurRadius * 6,
-                ),
-              ),
-              label: "",
-            ),
-            BottomNavigationBarItem(
-              icon: InkWell(
-                onTap: () {
-                  sendEmail();
-                },
-                child: const Icon(Icons.report),
-              ),
-              label: "",
-            ),
-          ],
-        ),
-      ),
+          );
+        } else {
+          return ProjectCircularProgressIndicator(
+              mediaQueryWith: MediaQuery.of(context).size.width);
+        }
+      },
     );
   }
 

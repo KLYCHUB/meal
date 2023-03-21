@@ -28,11 +28,10 @@ class SureText extends StatelessWidget {
         textAlign: TextAlign.center,
         style: Theme.of(context).textTheme.titleLarge?.copyWith(
               color: ProjectColor().indicatorBG,
-              fontFamily: Fonts().snicker,
+              fontFamily: Fonts().farsan,
               fontWeight: fontWeight,
               letterSpacing: letterSpacing,
               fontSize: fontSize,
-              fontStyle: FontStyle.italic,
             ),
       ),
     );
