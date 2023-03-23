@@ -1,7 +1,7 @@
 class Karma {
   final String sabir = '"Allah, sabredenlerle beraberdir..."';
-  final String textFieldText = "Hangi Sureyi Aramıştınız?";
-  final String textFieldText2 = "Ayet numarasını girin...";
+  final String textFieldText = "Sure Ara...";
+  final String textFieldText2 = "Ayet Numarası Ara...";
   final String bismillah = "Bismillahirrahmanirrahim";
   final String not = "NOTLARIM";
   final String subject = 'Merhaba, ne istemiştiniz?';

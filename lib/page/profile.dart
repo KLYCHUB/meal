@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:meal/core/bottom_nav_bar.dart';
-import 'package:meal/page/ayet_ekran%C4%B1.dart';
+import 'package:meal/page/sure_secim_ekrani.dart';
 import 'package:meal/product/color/project_color.dart';
 import 'package:meal/product/lang/karma.dart';
 import '../core/app_bar_button_link.dart';

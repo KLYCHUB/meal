@@ -2,7 +2,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:meal/page/sure_secim_ekrani.dart';
 import '../core/custom_button.dart';
-import '../core/custom_circular_indicator.dart';
 import '../core/custom_text.dart';
 import '../product/color/project_color.dart';
 import '../product/lang/next_page_image.dart';
@@ -23,7 +22,6 @@ class NextPageRandomText extends StatelessWidget {
       ayetler.fatiha,
       ayetler.bakara,
       ayetler.nisa,
-      ayetler.aliimran,
     ];
 
     int randomListIndex = random.nextInt(allLists.length);
@@ -407,78 +405,89 @@ class NextPageRandomText extends StatelessWidget {
             height: mediaQueryHeight,
             color: ProjectColor().overlayColor,
           ),
-          FutureBuilder(
-            future: Future.delayed(const Duration(milliseconds: 500)),
-            builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.done) {
-                return Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      NextScreenHeadlineText(
-                        nextScreenText:
-                            "$listName Suresi ${randomElementIndex + 1}.Ayet",
-                        letterSpacing: ProjectNum().letterSpacing,
-                        fontSize: ProjectNum().titleLarge,
-                        fontWeight: FontWeight.w900,
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              NextScreenHeadlineText(
+                nextScreenText:
+                    "$listName Suresi ${randomElementIndex + 1}.Ayet",
+                letterSpacing: ProjectNum().letterSpacing,
+                fontSize: ProjectNum().titleLarge,
+                fontWeight: FontWeight.w900,
+              ),
+              height100(),
+              NextScreenHeadlineText(
+                nextScreenText: '"$randomElement"',
+                fontSize: ProjectNum().titleMedium,
+                letterSpacing: ProjectNum().zero,
+                fontWeight: FontWeight.w400,
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                  bottom: mediaQueryWith / 6,
+                  top: mediaQueryWith / 4,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    PrpjectElevatedButton(
+                      mediaQueryWith: mediaQueryWith,
+                      icon: FaIcon(
+                        FontAwesomeIcons.bookQuran,
+                        color: ProjectColor().indicatorBG,
                       ),
-                      height100(),
-                      NextScreenHeadlineText(
-                        nextScreenText: '"$randomElement"',
-                        fontSize: ProjectNum().titleMedium,
-                        letterSpacing: ProjectNum().zero,
-                        fontWeight: FontWeight.w400,
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                            transitionDuration:
+                                const Duration(milliseconds: 500),
+                            pageBuilder: (_, __, ___) => const SureSecim(),
+                            transitionsBuilder: (_, animation, __, child) {
+                              return FadeTransition(
+                                opacity: Tween(begin: 0.0, end: 1.0).animate(
+                                    CurvedAnimation(
+                                        parent: animation,
+                                        curve: Curves.easeOut)),
+                                child: child,
+                              );
+                            },
+                          ),
+                        );
+                      },
+                    ),
+                    PrpjectElevatedButton(
+                      mediaQueryWith: mediaQueryWith,
+                      icon: FaIcon(
+                        // ignore: deprecated_member_use
+                        FontAwesomeIcons.refresh,
+                        color: ProjectColor().indicatorBG,
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                          bottom: mediaQueryWith / 6,
-                          top: mediaQueryWith / 4,
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            PrpjectElevatedButton(
-                              mediaQueryWith: mediaQueryWith,
-                              icon: FaIcon(
-                                FontAwesomeIcons.bookQuran,
-                                color: ProjectColor().indicatorBG,
-                              ),
-                              onPressed: () {
-                                Navigator.of(context).push(
-                                  MaterialPageRoute(
-                                    builder: (context) => const SureSecim(),
-                                  ),
-                                );
-                              },
-                            ),
-                            PrpjectElevatedButton(
-                              mediaQueryWith: mediaQueryWith,
-                              icon: FaIcon(
-                                // ignore: deprecated_member_use
-                                FontAwesomeIcons.refresh,
-                                color: ProjectColor().indicatorBG,
-                              ),
-                              onPressed: () {
-                                Navigator.of(context).push(
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        const NextPageRandomText(),
-                                  ),
-                                );
-                              },
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                );
-              } else {
-                return ProjectCircularProgressIndicator(
-                  mediaQueryWith: mediaQueryWith,
-                );
-              }
-            },
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          PageRouteBuilder(
+                            transitionDuration:
+                                const Duration(milliseconds: 500),
+                            pageBuilder: (_, __, ___) =>
+                                const NextPageRandomText(),
+                            transitionsBuilder: (_, animation, __, child) {
+                              return FadeTransition(
+                                opacity: Tween(begin: 0.0, end: 1.0).animate(
+                                    CurvedAnimation(
+                                        parent: animation,
+                                        curve: Curves.easeOut)),
+                                child: child,
+                              );
+                            },
+                          ),
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         ],
       ),

@@ -63,7 +63,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       height15(),
                       SplashScreenText(
                         splashScreenText: SplasScreenText().saArabic,
-                        fontFamily: Fonts().readexProDeca,
+                        fontFamily: Fonts().comicSansMS,
                         fontStyle: FontStyle.normal,
                       ),
                     ],
