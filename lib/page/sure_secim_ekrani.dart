@@ -105,7 +105,7 @@ class _SureSecimState extends State<SureSecim> {
                       ),
                       child: SureText(
                         nextScreenText: sureText,
-                        fontWeight: FontWeight.w700,
+                        fontWeight: FontWeight.w900,
                         letterSpacing: ProjectNum().zero,
                         fontSize: ProjectNum().titleMedium,
                         maxLines: 100,

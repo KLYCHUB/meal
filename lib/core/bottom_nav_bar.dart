@@ -41,11 +41,21 @@ class _ProjectBottomNavBarState extends State<ProjectBottomNavBar> {
             BottomNavigationBarItem(
               icon: InkWell(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) {
-                      return const NextPageRandomText();
-                    },
-                  ));
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      transitionDuration: const Duration(milliseconds: 500),
+                      pageBuilder: (_, __, ___) => const NextPageRandomText(),
+                      transitionsBuilder: (_, animation, __, child) {
+                        return FadeTransition(
+                          opacity: Tween(begin: 0.0, end: 1.0).animate(
+                              CurvedAnimation(
+                                  parent: animation, curve: Curves.easeOut)),
+                          child: child,
+                        );
+                      },
+                    ),
+                  );
                 },
                 child: const Icon(Icons.mosque),
               ),
@@ -54,11 +64,22 @@ class _ProjectBottomNavBarState extends State<ProjectBottomNavBar> {
             BottomNavigationBarItem(
               icon: InkWell(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) {
-                      return AddNote(title: Karma().not);
-                    },
-                  ));
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      transitionDuration: const Duration(milliseconds: 500),
+                      pageBuilder: (_, __, ___) =>
+                          const AddNote(title: 'NOTLARIM'),
+                      transitionsBuilder: (_, animation, __, child) {
+                        return FadeTransition(
+                          opacity: Tween(begin: 0.0, end: 1.0).animate(
+                              CurvedAnimation(
+                                  parent: animation, curve: Curves.easeOut)),
+                          child: child,
+                        );
+                      },
+                    ),
+                  );
                 },
                 child: Icon(
                   Icons.edit_note_sharp,

@@ -29,7 +29,7 @@ class SureText extends StatelessWidget {
         style: Theme.of(context).textTheme.titleLarge?.copyWith(
               color: ProjectColor().black,
               fontFamily: Fonts().comicSansMS,
-              fontStyle: FontStyle.italic,
+              fontStyle: FontStyle.normal,
               fontWeight: fontWeight,
               fontSize: fontSize,
             ),

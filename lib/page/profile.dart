@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:meal/core/bottom_nav_bar.dart';
-import 'package:meal/page/sure_secim_ekrani.dart';
 import 'package:meal/product/color/project_color.dart';
 import 'package:meal/product/lang/karma.dart';
 import '../core/app_bar_button_link.dart';
@@ -25,7 +24,10 @@ class _ProfileState extends State<Profile> {
         automaticallyImplyLeading: false,
         backgroundColor: ProjectColor().leylak,
         title: Text(Karma().yelbegen),
-        leading: const ArrowLeft(),
+        leading: Padding(
+          padding: ProjectEdgeInsets().def,
+          child: const ProfileArrowLeft(),
+        ),
         actions: [
           Padding(
             padding: ProjectEdgeInsets().def,
@@ -71,6 +73,30 @@ class AboutText extends StatelessWidget {
               ),
         ),
       ),
+    );
+  }
+}
+
+class ProfileArrowLeft extends StatelessWidget {
+  const ProfileArrowLeft({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: Icon(
+        Icons.arrow_circle_left_rounded,
+        size: ProjectNum().blurRadius * 6,
+        shadows: [
+          BoxShadow(
+            blurRadius: ProjectNum().blurRadius * 2,
+            color: ProjectColor().black2,
+            offset: const Offset(0, 0),
+          ),
+        ],
+      ),
+      onPressed: () {
+        Navigator.pop(context);
+      },
     );
   }
 }
