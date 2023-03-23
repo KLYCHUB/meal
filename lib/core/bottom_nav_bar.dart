@@ -106,11 +106,14 @@ class _ProjectBottomNavBarState extends State<ProjectBottomNavBar> {
   //'klychub@gmail.com',
 
   void sendEmail() async {
-    final Uri emailUri =
-        Uri(scheme: 'mailto', path: Karma().mail, queryParameters: {
-      'subject': Karma().subject,
-      'body': Karma().body,
-    });
+    final Uri emailUri = Uri(
+      scheme: 'mailto',
+      path: Karma().mail,
+      queryParameters: {
+        'subject': Karma().subject,
+        'body': Karma().body,
+      },
+    );
     final String emailUrl = emailUri.toString();
     String fallbackUrl = Karma().web;
 
@@ -128,7 +131,8 @@ class _ProjectBottomNavBarState extends State<ProjectBottomNavBar> {
       }
       // ignore: deprecated_member_use
       await launch(
-          fallbackUrl); // uygulama içinde bir e-posta gönderme sayfası açılır
+        fallbackUrl,
+      ); // uygulama içinde bir e-posta gönderme sayfası açılır
     }
   }
 }

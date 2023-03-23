@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.meal">
+    package="com.example.kelam">
 
    <uses-permission android:name="android.permission.INTERNET" />
    <uses-permission android:name="android.permission.CAMERA" />
@@ -8,7 +8,7 @@
    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
    <application
-        android:label="meal"
+        android:label="Kelam"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
