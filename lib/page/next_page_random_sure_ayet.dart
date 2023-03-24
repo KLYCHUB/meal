@@ -21,7 +21,7 @@ class NextPageRandomText extends StatelessWidget {
     List<List<String>> allLists = [
       ayetler.fatiha,
       ayetler.bakara,
-      ayetler.nisa,
+      ayetler.aliimran,
     ];
 
     int randomListIndex = random.nextInt(allLists.length);
