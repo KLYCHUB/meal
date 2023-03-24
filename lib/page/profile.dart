@@ -42,10 +42,10 @@ class _ProfileState extends State<Profile> {
       body: Padding(
         padding: ProjectEdgeInsets().h60v30 / 1.5,
         child: Column(
-          children: const [
+          children: [
             Expanded(
               child: Image(
-                image: AssetImage("assets/images/logo.png"),
+                image: AssetImage(Karma().logo),
               ),
             ),
           ],

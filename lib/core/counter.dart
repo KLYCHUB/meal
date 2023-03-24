@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meal/product/util/constans.dart';
-import 'package:shared_preferences/shared_preferences.dart'; // import package
-
+import 'package:shared_preferences/shared_preferences.dart';
 import '../product/color/project_color.dart';
 
 class CustomCounter extends StatefulWidget {

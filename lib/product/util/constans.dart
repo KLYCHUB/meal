@@ -21,6 +21,7 @@ class ProjectEdgeInsets {
       const EdgeInsets.only(top: 10, bottom: 10, left: 10, right: 10);
   final EdgeInsets top20 = const EdgeInsets.only(top: 20);
   final EdgeInsets def = const EdgeInsets.all(8.0);
+  final EdgeInsets bottom30 = const EdgeInsets.only(bottom: 30);
 }
 
 class Decarations {
@@ -32,6 +33,7 @@ class ProjectNum {
   final double letterSpacing = 2;
   final double blurRadius = 5;
   final double zero = 0;
+  final double headlineSmall = 24;
   final double titleLarge = 22;
   final double titleMedium = 16;
   final double height45 = 45;

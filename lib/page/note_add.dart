@@ -202,9 +202,9 @@ class _AddNoteState extends State<AddNote> {
                 ],
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(bottom: 30),
-              child: CustomCounter(),
+            Padding(
+              padding: ProjectEdgeInsets().bottom30,
+              child: const CustomCounter(),
             )
           ],
         ),

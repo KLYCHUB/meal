@@ -21,15 +21,16 @@ class _ProjectBottomNavBarState extends State<ProjectBottomNavBar> {
       padding: ProjectEdgeInsets().h60v30,
       child: Container(
         decoration: BoxDecoration(
-            color: ProjectColor().ddddddColor,
-            borderRadius: Decarations().circular25,
-            boxShadow: [
-              BoxShadow(
-                color: ProjectColor().black2,
-                blurRadius: ProjectNum().blurRadius * 2,
-                offset: const Offset(0, 0),
-              )
-            ]),
+          color: ProjectColor().ddddddColor,
+          borderRadius: Decarations().circular25,
+          boxShadow: [
+            BoxShadow(
+              color: ProjectColor().black2,
+              blurRadius: ProjectNum().blurRadius * 2,
+              offset: Offset(ProjectNum().zero, ProjectNum().zero),
+            )
+          ],
+        ),
         child: BottomNavigationBar(
           elevation: ProjectNum().zero,
           selectedFontSize: ProjectNum().zero,
@@ -49,8 +50,11 @@ class _ProjectBottomNavBarState extends State<ProjectBottomNavBar> {
                       transitionsBuilder: (_, animation, __, child) {
                         return FadeTransition(
                           opacity: Tween(begin: 0.0, end: 1.0).animate(
-                              CurvedAnimation(
-                                  parent: animation, curve: Curves.easeOut)),
+                            CurvedAnimation(
+                              parent: animation,
+                              curve: Curves.easeOut,
+                            ),
+                          ),
                           child: child,
                         );
                       },
@@ -73,8 +77,11 @@ class _ProjectBottomNavBarState extends State<ProjectBottomNavBar> {
                       transitionsBuilder: (_, animation, __, child) {
                         return FadeTransition(
                           opacity: Tween(begin: 0.0, end: 1.0).animate(
-                              CurvedAnimation(
-                                  parent: animation, curve: Curves.easeOut)),
+                            CurvedAnimation(
+                              parent: animation,
+                              curve: Curves.easeOut,
+                            ),
+                          ),
                           child: child,
                         );
                       },
@@ -103,8 +110,6 @@ class _ProjectBottomNavBarState extends State<ProjectBottomNavBar> {
     );
   }
 
-  //'klychub@gmail.com',
-
   void sendEmail() async {
     final Uri emailUri = Uri(
       scheme: 'mailto',
@@ -132,7 +137,7 @@ class _ProjectBottomNavBarState extends State<ProjectBottomNavBar> {
       // ignore: deprecated_member_use
       await launch(
         fallbackUrl,
-      ); // uygulama içinde bir e-posta gönderme sayfası açılır
+      );
     }
   }
 }

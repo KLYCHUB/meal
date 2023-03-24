@@ -65,8 +65,7 @@ class _AyetOkumaEkraniState extends State<AyetOkumaEkrani> {
                 color: ProjectColor().indicatorBG,
               ),
               border: const OutlineInputBorder(),
-              prefixIcon:
-                  Icon(Icons.search, color: ProjectColor().indicatorBG),
+              prefixIcon: Icon(Icons.search, color: ProjectColor().indicatorBG),
               isDense: true,
               filled: true,
               hintText: Karma().textFieldText2,
@@ -121,7 +120,7 @@ class _AyetOkumaEkraniState extends State<AyetOkumaEkrani> {
                               ),
                               width: MediaQuery.of(context).size.width / 1.1,
                               child: Padding(
-                                padding: const EdgeInsets.all(16.0),
+                                padding: ProjectEdgeInsets().def * 2,
                                 child: SingleChildScrollView(
                                   child: SureText(
                                     nextScreenText: SureAyet().getListItem(

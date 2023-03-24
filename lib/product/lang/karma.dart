@@ -9,4 +9,5 @@ class Karma {
   final String web = 'https://klychub.github.io/';
   final String mail = 'klychub@gmail.com';
   final String yelbegen = 'YELBEGEN SOFTWARE';
+  final String logo = "assets/images/logo.png";
 }

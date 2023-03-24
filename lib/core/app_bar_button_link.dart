@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../product/util/constans.dart';
+
 class AppBarButtonLink extends StatelessWidget {
   const AppBarButtonLink({Key? key, required this.linkUrl, required this.icon})
       : super(key: key);
@@ -15,7 +17,7 @@ class AppBarButtonLink extends StatelessWidget {
     return IconButton(
       icon: FaIcon(
         icon,
-        size: 24,
+        size: ProjectNum().headlineSmall,
       ),
       onPressed: () async {
         final websiteUrl = Uri.parse(linkUrl);
