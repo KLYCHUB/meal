@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:meal/core/bottom_nav_bar.dart';
 import 'package:meal/product/color/project_color.dart';
 import 'package:meal/product/lang/karma.dart';
-import '../core/app_bar_button_link.dart';
+import '../core/app_bar_buttons.dart';
 import '../product/util/constans.dart';
 
 class Profile extends StatefulWidget {
@@ -39,15 +39,19 @@ class _ProfileState extends State<Profile> {
           ),
         ],
       ),
-      body: Padding(
-        padding: ProjectEdgeInsets().h60v30 / 1.5,
+      body: Center(
         child: Column(
-          children: [
-            Expanded(
-              child: Image(
-                image: AssetImage(Karma().logo),
-              ),
-            ),
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: const [
+            HeadlineText(),
+            SubjectText(),
+            SizedBox(height: 16.0),
+            HeadlineText(),
+            SubjectText(),
+            SizedBox(height: 16.0),
+            HeadlineText(),
+            SubjectText(),
           ],
         ),
       ),
@@ -56,53 +60,37 @@ class _ProfileState extends State<Profile> {
   }
 }
 
-class AboutText extends StatelessWidget {
-  const AboutText({
+class SubjectText extends StatelessWidget {
+  const SubjectText({
     super.key,
-    required this.text,
   });
-
-  final String text;
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 2,
-      child: Container(
-        alignment: Alignment.center,
-        child: Text(
-          text,
-          textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                color: ProjectColor().ddddddColor,
-                fontWeight: FontWeight.w800,
-              ),
-        ),
+    return Text(
+      'List of resources goes here',
+      style: TextStyle(
+        fontSize: 16.0,
+        color: Colors.white,
       ),
     );
   }
 }
 
-class ProfileArrowLeft extends StatelessWidget {
-  const ProfileArrowLeft({super.key});
+class HeadlineText extends StatelessWidget {
+  const HeadlineText({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      icon: Icon(
-        Icons.arrow_circle_left_rounded,
-        size: ProjectNum().blurRadius * 6,
-        shadows: [
-          BoxShadow(
-            blurRadius: ProjectNum().blurRadius * 2,
-            color: ProjectColor().black2,
-            offset: const Offset(0, 0),
-          ),
-        ],
+    return Text(
+      'Resources:',
+      style: TextStyle(
+        fontSize: 20.0,
+        fontWeight: FontWeight.bold,
+        color: Colors.white,
       ),
-      onPressed: () {
-        Navigator.pop(context);
-      },
     );
   }
 }

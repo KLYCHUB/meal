@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:meal/page/next_page_random_sure_ayet.dart';
+import 'package:meal/page/random_sure_image.dart';
 import 'package:meal/product/lang/karma.dart';
 import '../page/note_add.dart';
 import '../product/color/project_color.dart';
@@ -72,8 +72,7 @@ class _ProjectBottomNavBarState extends State<ProjectBottomNavBar> {
                     context,
                     PageRouteBuilder(
                       transitionDuration: const Duration(milliseconds: 500),
-                      pageBuilder: (_, __, ___) =>
-                          const AddNote(title: 'NOTLARIM'),
+                      pageBuilder: (_, __, ___) => AddNote(title: Karma().not),
                       transitionsBuilder: (_, animation, __, child) {
                         return FadeTransition(
                           opacity: Tween(begin: 0.0, end: 1.0).animate(

@@ -1,5 +1,5 @@
-class NextPageImage {
-  List<String> nextPageImage = [
+class RandomResimEkrani {
+  List<String> randomResimler = [
     "assets/images/1.jpg",
     "assets/images/2.jpg",
     "assets/images/3.jpg",

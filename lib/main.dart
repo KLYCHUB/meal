@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'demo.dart';
+import 'package:meal/page/random_sure_image.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         appBarTheme: const AppBarTheme(),
       ),
-      home: const SurahListPage(),
+      home: const NextPageRandomText(),
     );
   }
 }
