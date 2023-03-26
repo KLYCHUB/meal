@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:meal/page/random_sure_image.dart';
+import 'package:meal/page/next_page_random_sure_ayet.dart';
 
 void main() {
   runApp(const MyApp());

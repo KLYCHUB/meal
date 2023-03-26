@@ -13,12 +13,14 @@ class CustomCounter extends StatefulWidget {
 class _CustomCounterState extends State<CustomCounter> {
   int _countValue_1 = 0;
 
+  // add this method to load the saved count value when the widget is created
   @override
   void initState() {
     super.initState();
     _loadCountValue();
   }
 
+  // load the saved count value from shared preferences
   void _loadCountValue() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
@@ -26,6 +28,7 @@ class _CustomCounterState extends State<CustomCounter> {
     });
   }
 
+  // save the current count value to shared preferences
   void _saveCountValue() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setInt('countValue', _countValue_1);
@@ -35,12 +38,12 @@ class _CustomCounterState extends State<CustomCounter> {
     if (isIncrement) {
       setState(() {
         _countValue_1 += 1;
-        _saveCountValue();
+        _saveCountValue(); // save the count value when it changes
       });
     } else {
       setState(() {
         _countValue_1 = 0;
-        _saveCountValue();
+        _saveCountValue(); // save the count value when it changes
       });
       if (_countValue_1 < 0) {
         _countValue_1 = 0;
@@ -106,11 +109,17 @@ class _CounterUpdateContainer extends StatelessWidget {
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [ProjectColor().ddddddColor, ProjectColor().ddddddColor],
+          colors: [
+            ProjectColor().ddddddColor,
+            ProjectColor().ddddddColor,
+          ],
         ),
       ),
       child: RepaintBoundary(
-        child: Padding(padding: ProjectEdgeInsets().def, child: Icon(icon)),
+        child: Padding(
+          padding: ProjectEdgeInsets().def,
+          child: Icon(icon),
+        ),
       ),
     );
   }

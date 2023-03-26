@@ -500,4 +500,35 @@ class SureAyet {
     "Ehl-i kitap’tan öyleleri vardır ki hem Allah’a hem size indirilene hem de kendilerine indirilmiş olana inanırlar, Allah’a karşı saygı duyup Allah’ın âyetlerini az bir pahaya değişmezler. İşte onların rableri katında mükâfatları vardır. Şüphesiz Allah hesap görmekte çok çabuktur.",
     "Ey iman edenler! Sabredin, kararlılıkta yarışın, düşmana karşı hazırlıklı olun (birbirinize dayanıp bağlanın), Allah’a karşı gelmekten sakının ki başarıya ulaşabilesiniz.",
   ];
+
+  
+
+  List<String> nisa = [];
+
+  String getListItem(int pageIndex, int index) {
+    if (pageIndex == 0) {
+      pageIndex = 0;
+      return fatiha[index];
+    } else if (pageIndex == 1) {
+      pageIndex = 1;
+      return bakara[index];
+    } else if (pageIndex == 2) {
+      pageIndex = 2;
+      return aliimran[index];
+    } else {
+      return "";
+    }
+  }
+
+  int itemCount(int pageIndex) {
+    if (pageIndex == 0) {
+      return fatiha.length;
+    } else if (pageIndex == 1) {
+      return bakara.length;
+    } else if (pageIndex == 2) {
+      return aliimran.length;
+    } else {
+      return 0;
+    }
+  }
 }

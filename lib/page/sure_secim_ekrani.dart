@@ -1,33 +1,32 @@
-// ignore_for_file: file_names
 import 'package:flutter/material.dart';
-import 'package:meal/page/ayet_read_screen.dart';
-import 'package:meal/page/random_sure_image.dart';
-import 'package:meal/product/color/project_color.dart';
-import 'package:meal/product/lang/karma.dart';
-import 'package:meal/product/lang/sure_ayet_texts.dart';
-import 'package:meal/product/util/constans.dart';
-import '../core/app_bar_buttons.dart';
+import 'package:meal/page/next_page_random_sure_ayet.dart';
 import '../core/bottom_nav_bar.dart';
 import '../core/sure_text.dart';
+import '../product/color/project_color.dart';
+import '../product/lang/karma.dart';
+import '../product/lang/sure_bilgileri.dart';
+import '../product/util/constans.dart';
+import 'ayet_ekranı.dart';
 
-class SureListesi extends StatefulWidget {
-  const SureListesi({Key? key}) : super(key: key);
+class SureSecim extends StatefulWidget {
+  const SureSecim({super.key});
 
   @override
-  State<SureListesi> createState() => _SureListesiState();
+  State<SureSecim> createState() => _SureSecimState();
 }
 
-class _SureListesiState extends State<SureListesi> {
+class _SureSecimState extends State<SureSecim> {
   final TextEditingController _searchController = TextEditingController();
 
   void _filterSureBilgileri(String query) {
     setState(() {});
   }
 
+  int currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ProjectColor().leylak,
       appBar: AppBar(
         elevation: ProjectNum().zero,
         automaticallyImplyLeading: false,
@@ -47,10 +46,12 @@ class _SureListesiState extends State<SureListesi> {
           child: _TextField(),
         ),
       ),
+      backgroundColor: ProjectColor().leylak,
       body: ListView.builder(
         physics: const BouncingScrollPhysics(),
+        itemCount: Sure().sureBilgileri.length,
         itemBuilder: (BuildContext context, int index) {
-          final sureText = SureBilgileri().sureBilgileri[index];
+          final sureText = Sure().sureBilgileri[index];
 
           // Arama metni varsa ve aranılan metin bulunamazsa null döndürür
           if (_searchController.text.isNotEmpty &&
@@ -60,58 +61,69 @@ class _SureListesiState extends State<SureListesi> {
             return const SizedBox.shrink();
           }
 
-          return ListTile(
-            title: Container(
-              alignment: Alignment.center,
-              height: ProjectNum().height45 * 2.5,
-              decoration: BoxDecoration(
-                color: ProjectColor().ddddddColor,
-                borderRadius: Decarations().circular5,
-                boxShadow: [
-                  BoxShadow(
-                    blurRadius: ProjectNum().blurRadius,
-                    color: ProjectColor().black2,
-                    offset: const Offset(0, 3),
-                  ),
-                ],
-              ),
-              child: SureText(
-                nextScreenText: sureText,
-                fontWeight: FontWeight.w900,
-                letterSpacing: ProjectNum().zero,
-                fontSize: ProjectNum().titleMedium,
-                maxLines: 100,
-                overflow: TextOverflow.visible,
-              ),
-            ),
-            onTap: () {
-              Navigator.push(
-                context,
-                PageRouteBuilder(
-                  transitionDuration: const Duration(milliseconds: 500),
-                  pageBuilder: (_, __, ___) =>
-                      SurahPage(surah: SurelerAyetler().surahs[index]),
-                  transitionsBuilder: (_, animation, __, child) {
-                    return FadeTransition(
-                      opacity: Tween(begin: 0.0, end: 1.0).animate(
-                        CurvedAnimation(
-                          parent: animation,
-                          curve: Curves.easeOut,
+          return Row(
+            children: [
+              Expanded(
+                child: Padding(
+                  padding: ProjectEdgeInsets().listSymetric,
+                  child: InkWell(
+                    onTap: () {
+                      currentIndex = index;
+                      Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                          transitionDuration: const Duration(milliseconds: 500),
+                          pageBuilder: (_, __, ___) =>
+                              AyetOkumaEkrani(pageIndex: index),
+                          transitionsBuilder: (_, animation, __, child) {
+                            return FadeTransition(
+                              opacity: Tween(begin: 0.0, end: 1.0).animate(
+                                CurvedAnimation(
+                                  parent: animation,
+                                  curve: Curves.easeOut,
+                                ),
+                              ),
+                              child: child,
+                            );
+                          },
                         ),
+                      );
+                    },
+                    child: Container(
+                      alignment: Alignment.center,
+                      height: ProjectNum().height45 * 2.5,
+                      decoration: BoxDecoration(
+                        color: ProjectColor().ddddddColor,
+                        borderRadius: Decarations().circular5,
+                        boxShadow: [
+                          BoxShadow(
+                            blurRadius: ProjectNum().blurRadius,
+                            color: ProjectColor().black2,
+                            offset: const Offset(0, 3),
+                          ),
+                        ],
                       ),
-                      child: child,
-                    );
-                  },
+                      child: SureText(
+                        nextScreenText: sureText,
+                        fontWeight: FontWeight.w900,
+                        letterSpacing: ProjectNum().zero,
+                        fontSize: ProjectNum().titleMedium,
+                        maxLines: 100,
+                        overflow: TextOverflow.visible,
+                      ),
+                    ),
+                  ),
                 ),
-              );
-            },
+              ),
+            ],
           );
         },
-        itemCount: SurelerAyetler().surahs.length,
       ),
       bottomNavigationBar: const ProjectBottomNavBar(),
     );
   }
+
+  //----------------------------------------------------------------------------
 
   // ignore: non_constant_identifier_names
   TextFormField _TextField() {
@@ -150,8 +162,6 @@ class _SureListesiState extends State<SureListesi> {
   }
 }
 
-//------------------------------------------------------------------------------
-
 class ArrowLeft extends StatelessWidget {
   const ArrowLeft({super.key});
 
@@ -188,16 +198,5 @@ class ArrowLeft extends StatelessWidget {
     );
   }
 }
-
-class Surah {
-  String name;
-  String url;
-
-  Surah({required this.name, required this.url});
-}
-
-class Ayet {
-  String text;
-
-  Ayet({required this.text});
-}
+//
+                          
