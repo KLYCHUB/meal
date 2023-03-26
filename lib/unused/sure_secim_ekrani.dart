@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:meal/page/next_page_random_sure_ayet.dart';
 import '../core/bottom_nav_bar.dart';
 import '../core/sure_text.dart';
 import '../product/color/project_color.dart';
@@ -33,7 +32,7 @@ class _SureSecimState extends State<SureSecim> {
         backgroundColor: ProjectColor().leylak,
         leading: Padding(
           padding: ProjectEdgeInsets().def,
-          child: const ArrowLeft(),
+          //child: const ArrowLeft(),
         ),
         actions: [
           Padding(
@@ -162,41 +161,6 @@ class _SureSecimState extends State<SureSecim> {
   }
 }
 
-class ArrowLeft extends StatelessWidget {
-  const ArrowLeft({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-      icon: Icon(
-        Icons.arrow_circle_left_rounded,
-        size: ProjectNum().blurRadius * 6,
-        shadows: [
-          BoxShadow(
-            blurRadius: ProjectNum().blurRadius * 2,
-            color: ProjectColor().black2,
-            offset: const Offset(0, 0),
-          ),
-        ],
-      ),
-      onPressed: () {
-        Navigator.push(
-          context,
-          PageRouteBuilder(
-            transitionDuration: const Duration(milliseconds: 500),
-            pageBuilder: (_, __, ___) => const NextPageRandomText(),
-            transitionsBuilder: (_, animation, __, child) {
-              return FadeTransition(
-                opacity: Tween(begin: 0.0, end: 1.0).animate(
-                    CurvedAnimation(parent: animation, curve: Curves.easeOut)),
-                child: child,
-              );
-            },
-          ),
-        );
-      },
-    );
-  }
-}
 //
                           

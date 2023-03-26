@@ -1,11 +1,11 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:meal/page/sure_secim_ekrani.dart';
 import '../core/custom_button.dart';
 import '../core/custom_text.dart';
+import '../demo.dart';
 import '../product/color/project_color.dart';
 import '../product/lang/next_page_image.dart';
-import '../product/lang/sure_ayet_tefsir.dart';
+import '../unused/sure_ayet_tefsir.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../product/util/constans.dart';
@@ -442,7 +442,7 @@ class NextPageRandomText extends StatelessWidget {
                           PageRouteBuilder(
                             transitionDuration:
                                 const Duration(milliseconds: 500),
-                            pageBuilder: (_, __, ___) => const SureSecim(),
+                            pageBuilder: (_, __, ___) => const SurahListPage(),
                             transitionsBuilder: (_, animation, __, child) {
                               return FadeTransition(
                                 opacity: Tween(begin: 0.0, end: 1.0).animate(

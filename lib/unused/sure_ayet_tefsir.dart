@@ -501,8 +501,6 @@ class SureAyet {
     "Ey iman edenler! Sabredin, kararlılıkta yarışın, düşmana karşı hazırlıklı olun (birbirinize dayanıp bağlanın), Allah’a karşı gelmekten sakının ki başarıya ulaşabilesiniz.",
   ];
 
-  
-
   List<String> nisa = [];
 
   String getListItem(int pageIndex, int index) {

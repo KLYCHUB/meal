@@ -2,15 +2,14 @@
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 import 'package:meal/page/profile.dart';
-import 'package:meal/page/sure_secim_ekrani.dart';
 import '../core/bottom_nav_bar.dart';
 import '../core/sure_text.dart';
 import '../product/color/project_color.dart';
 import '../product/lang/karma.dart';
 import '../product/lang/next_page_image.dart';
-import '../product/lang/sure_ayet_tefsir.dart';
+import 'sure_ayet_tefsir.dart';
 import '../product/util/constans.dart';
-import 'next_page_random_sure_ayet.dart';
+import '../page/next_page_random_sure_ayet.dart';
 
 class AyetOkumaEkrani extends StatefulWidget {
   final int pageIndex;
@@ -34,7 +33,7 @@ class _AyetOkumaEkraniState extends State<AyetOkumaEkrani> {
       appBar: AppBar(
         leading: Padding(
           padding: ProjectEdgeInsets().def,
-          child: const ArrowLeft2(),
+          //child: const ArrowLeft2(),
         ),
         actions: [
           Padding(
@@ -228,41 +227,4 @@ class PersonButton extends StatelessWidget {
   }
 }
 
-class ArrowLeft2 extends StatelessWidget {
-  const ArrowLeft2({
-    super.key,
-  });
 
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-      icon: Icon(
-        Icons.arrow_circle_left_rounded,
-        size: ProjectNum().blurRadius * 6,
-        shadows: [
-          BoxShadow(
-            blurRadius: ProjectNum().blurRadius * 2,
-            color: ProjectColor().black2,
-            offset: const Offset(0, 0),
-          ),
-        ],
-      ),
-      onPressed: () {
-        Navigator.push(
-          context,
-          PageRouteBuilder(
-            transitionDuration: const Duration(milliseconds: 500),
-            pageBuilder: (_, __, ___) => const SureSecim(),
-            transitionsBuilder: (_, animation, __, child) {
-              return FadeTransition(
-                opacity: Tween(begin: 0.0, end: 1.0).animate(
-                    CurvedAnimation(parent: animation, curve: Curves.easeOut)),
-                child: child,
-              );
-            },
-          ),
-        );
-      },
-    );
-  }
-}
