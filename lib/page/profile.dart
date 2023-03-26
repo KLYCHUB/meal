@@ -43,35 +43,63 @@ class _ProfileState extends State<Profile> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
-          children: const [
-            HeadlineText(),
-            SubjectText(),
-            SizedBox(height: 16.0),
-            HeadlineText(),
-            SubjectText(),
-            SizedBox(height: 16.0),
-            HeadlineText(),
-            SubjectText(),
+          children: [
+            const HeadlineText(
+              headlineText: 'KAYNAKLAR',
+            ),
+            const SubjectText(
+              subjectText: 'www.mealikerim.com',
+            ),
+            height45(),
+            const HeadlineText(
+              headlineText: 'İLETİŞİM',
+            ),
+            const SubjectText(
+              subjectText: 'klychub.github.io',
+            ),
+            Padding(
+              padding: ProjectEdgeInsets().def / 2,
+              child: const SubjectText(
+                subjectText: 'yelbegensoftware@gmail.com',
+              ),
+            ),
+            height45(),
+            const HeadlineText(
+              headlineText: 'ÖNEMLİ',
+            ),
+            const SubjectText(
+              subjectText:
+                  'Bu uygulama hiç bir kâr amacı gütmeyen bir uygulamadır. Bu uygulama için de ki ayetlerde herhangi bir hata görürseniz bize bildirin. Bu uygulamadaki verileri www.mealikerim.com sitesinden almaktayız. Anlayışınız için teşekkürler...',
+            ),
           ],
         ),
       ),
       bottomNavigationBar: const ProjectBottomNavBar(),
     );
   }
+
+  SizedBox height45() => SizedBox(height: ProjectNum().height45);
 }
 
 class SubjectText extends StatelessWidget {
   const SubjectText({
     super.key,
+    required this.subjectText,
   });
+
+  final String subjectText;
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      'List of resources goes here',
-      style: TextStyle(
-        fontSize: 16.0,
-        color: Colors.white,
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: ProjectNum().blurRadius * 4),
+      child: Text(
+        subjectText,
+        textAlign: TextAlign.center,
+        style: Theme.of(context).textTheme.titleMedium?.copyWith(
+              color: ProjectColor().ddddddColor,
+              fontWeight: FontWeight.w500,
+            ),
       ),
     );
   }
@@ -80,17 +108,19 @@ class SubjectText extends StatelessWidget {
 class HeadlineText extends StatelessWidget {
   const HeadlineText({
     super.key,
+    required this.headlineText,
   });
+
+  final String headlineText;
 
   @override
   Widget build(BuildContext context) {
     return Text(
-      'Resources:',
-      style: TextStyle(
-        fontSize: 20.0,
-        fontWeight: FontWeight.bold,
-        color: Colors.white,
-      ),
+      headlineText,
+      style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+            color: ProjectColor().ddddddColor,
+            fontWeight: FontWeight.w900,
+          ),
     );
   }
 }
