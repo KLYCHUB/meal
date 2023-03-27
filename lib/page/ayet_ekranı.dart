@@ -46,7 +46,7 @@ class _AyetOkumaEkraniState extends State<AyetOkumaEkrani> {
         backgroundColor: ProjectColor().leylak,
         title: SizedBox(
           height: ProjectNum().height45,
-          child: _TexrField(),
+          child: _texrField(),
         ),
       ),
       backgroundColor: ProjectColor().leylak,
@@ -163,7 +163,7 @@ class _AyetOkumaEkraniState extends State<AyetOkumaEkrani> {
 
   //----------------------------------------------------------------------------
 
-  TextFormField _TexrField() {
+  TextFormField _texrField() {
     return TextFormField(
       controller: _searchController,
       onChanged: _filterSureBilgileri,
