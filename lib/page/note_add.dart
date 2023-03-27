@@ -2,12 +2,11 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:meal/page/sure_secim_ekrani.dart';
 import 'package:meal/product/color/project_color.dart';
 import 'package:meal/product/util/constans.dart';
 import 'package:path_provider/path_provider.dart';
+import '../core/app_bar_buttons.dart';
 import '../core/counter.dart';
-import 'ayet_ekranı.dart';
 
 class AddNote extends StatefulWidget {
   const AddNote({Key? key, required this.title}) : super(key: key);
@@ -82,7 +81,7 @@ class _AddNoteState extends State<AddNote> {
     return Scaffold(
       backgroundColor: ProjectColor().leylak,
       appBar: AppBar(
-        leading: const ArrowLeft(),
+        leading: const ArrowLeft3(),
         centerTitle: true,
         title: Text(
           widget.title,

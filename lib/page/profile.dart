@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:meal/core/bottom_nav_bar.dart';
 import 'package:meal/product/color/project_color.dart';
 import 'package:meal/product/lang/karma.dart';
-import '../core/app_bar_button_link.dart';
+import '../core/app_bar_buttons.dart';
 import '../product/util/constans.dart';
 
 class Profile extends StatefulWidget {
@@ -39,14 +39,37 @@ class _ProfileState extends State<Profile> {
           ),
         ],
       ),
-      body: Padding(
-        padding: ProjectEdgeInsets().h60v30 / 1.5,
+      body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Expanded(
-              child: Image(
-                image: AssetImage(Karma().logo),
+            const HeadlineText(
+              headlineText: 'KAYNAKLAR',
+            ),
+            const SubjectText(
+              subjectText: 'www.mealikerim.com',
+            ),
+            height45(),
+            const HeadlineText(
+              headlineText: 'İLETİŞİM',
+            ),
+            const SubjectText(
+              subjectText: 'klychub.github.io',
+            ),
+            Padding(
+              padding: ProjectEdgeInsets().def / 2,
+              child: const SubjectText(
+                subjectText: 'yelbegensoftware@gmail.com',
               ),
+            ),
+            height45(),
+            const HeadlineText(
+              headlineText: 'ÖNEMLİ',
+            ),
+            const SubjectText(
+              subjectText:
+                  'Bu uygulama hiç bir kâr amacı gütmeyen bir uygulamadır. Bu uygulama için de ki ayetlerde herhangi bir hata görürseniz bize bildirin. Bu uygulamadaki verileri www.mealikerim.com sitesinden almaktayız. Anlayışınız için teşekkürler...',
             ),
           ],
         ),
@@ -54,55 +77,50 @@ class _ProfileState extends State<Profile> {
       bottomNavigationBar: const ProjectBottomNavBar(),
     );
   }
+
+  SizedBox height45() => SizedBox(height: ProjectNum().height45);
 }
 
-class AboutText extends StatelessWidget {
-  const AboutText({
+class SubjectText extends StatelessWidget {
+  const SubjectText({
     super.key,
-    required this.text,
+    required this.subjectText,
   });
 
-  final String text;
+  final String subjectText;
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      flex: 2,
-      child: Container(
-        alignment: Alignment.center,
-        child: Text(
-          text,
-          textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                color: ProjectColor().ddddddColor,
-                fontWeight: FontWeight.w800,
-              ),
-        ),
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: ProjectNum().blurRadius * 4),
+      child: Text(
+        subjectText,
+        textAlign: TextAlign.center,
+        style: Theme.of(context).textTheme.titleMedium?.copyWith(
+              color: ProjectColor().ddddddColor,
+              fontWeight: FontWeight.w500,
+            ),
       ),
     );
   }
 }
 
-class ProfileArrowLeft extends StatelessWidget {
-  const ProfileArrowLeft({super.key});
+class HeadlineText extends StatelessWidget {
+  const HeadlineText({
+    super.key,
+    required this.headlineText,
+  });
+
+  final String headlineText;
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      icon: Icon(
-        Icons.arrow_circle_left_rounded,
-        size: ProjectNum().blurRadius * 6,
-        shadows: [
-          BoxShadow(
-            blurRadius: ProjectNum().blurRadius * 2,
-            color: ProjectColor().black2,
-            offset: const Offset(0, 0),
+    return Text(
+      headlineText,
+      style: Theme.of(context).textTheme.headlineSmall?.copyWith(
+            color: ProjectColor().ddddddColor,
+            fontWeight: FontWeight.w900,
           ),
-        ],
-      ),
-      onPressed: () {
-        Navigator.pop(context);
-      },
     );
   }
 }

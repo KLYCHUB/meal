@@ -1,8 +1,7 @@
 // ignore_for_file: file_names
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
-import 'package:meal/page/profile.dart';
-import 'package:meal/page/sure_secim_ekrani.dart';
+import '../core/app_bar_buttons.dart';
 import '../core/bottom_nav_bar.dart';
 import '../core/sure_text.dart';
 import '../product/color/project_color.dart';
@@ -185,84 +184,6 @@ class _AyetOkumaEkraniState extends State<AyetOkumaEkrani> {
         ),
       ),
       bottomNavigationBar: const ProjectBottomNavBar(),
-    );
-  }
-}
-
-class PersonButton extends StatelessWidget {
-  const PersonButton({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: () {
-        Navigator.push(
-          context,
-          PageRouteBuilder(
-            transitionDuration: const Duration(milliseconds: 500),
-            pageBuilder: (_, __, ___) => const Profile(),
-            transitionsBuilder: (_, animation, __, child) {
-              return FadeTransition(
-                opacity: Tween(begin: 0.0, end: 1.0).animate(
-                    CurvedAnimation(parent: animation, curve: Curves.easeOut)),
-                child: child,
-              );
-            },
-          ),
-        );
-      },
-      icon: Icon(
-        Icons.person,
-        size: ProjectNum().blurRadius * 6,
-        shadows: [
-          BoxShadow(
-            blurRadius: ProjectNum().blurRadius * 2,
-            color: ProjectColor().black2,
-            offset: const Offset(0, 0),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class ArrowLeft2 extends StatelessWidget {
-  const ArrowLeft2({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-      icon: Icon(
-        Icons.arrow_circle_left_rounded,
-        size: ProjectNum().blurRadius * 6,
-        shadows: [
-          BoxShadow(
-            blurRadius: ProjectNum().blurRadius * 2,
-            color: ProjectColor().black2,
-            offset: const Offset(0, 0),
-          ),
-        ],
-      ),
-      onPressed: () {
-        Navigator.push(
-          context,
-          PageRouteBuilder(
-            transitionDuration: const Duration(milliseconds: 500),
-            pageBuilder: (_, __, ___) => const SureSecim(),
-            transitionsBuilder: (_, animation, __, child) {
-              return FadeTransition(
-                opacity: Tween(begin: 0.0, end: 1.0).animate(
-                    CurvedAnimation(parent: animation, curve: Curves.easeOut)),
-                child: child,
-              );
-            },
-          ),
-        );
-      },
     );
   }
 }
