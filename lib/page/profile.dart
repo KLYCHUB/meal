@@ -48,7 +48,7 @@ class _ProfileState extends State<Profile> {
               headlineText: 'KAYNAKLAR',
             ),
             const SubjectText(
-              subjectText: 'www.mealikerim.com',
+              subjectText: 'kuran.diyanet.gov.tr',
             ),
             height45(),
             const HeadlineText(
@@ -69,7 +69,7 @@ class _ProfileState extends State<Profile> {
             ),
             const SubjectText(
               subjectText:
-                  'Bu uygulama hiç bir kâr amacı gütmeyen bir uygulamadır. Bu uygulama için de ki ayetlerde herhangi bir hata görürseniz bize bildirin. Bu uygulamadaki verileri www.mealikerim.com sitesinden almaktayız. Anlayışınız için teşekkürler...',
+                  'Bu uygulama hiç bir kâr amacı gütmeyen bir uygulamadır. Bu uygulama için de ki ayetlerde herhangi bir hata görürseniz bize bildirin. Bu uygulamadaki verileri kuran.diyanet.gov.tr sitesinden almaktayız...',
             ),
           ],
         ),
