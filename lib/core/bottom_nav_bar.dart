@@ -97,10 +97,11 @@ class _ProjectBottomNavBarState extends State<ProjectBottomNavBar> {
             ),
             BottomNavigationBarItem(
               icon: InkWell(
-                  onTap: () {
-                    sendEmail();
-                  },
-                  child: const Icon(Icons.report)),
+                onTap: () {
+                  sendEmail();
+                },
+                child: const Icon(Icons.report),
+              ),
               label: "",
             ),
           ],

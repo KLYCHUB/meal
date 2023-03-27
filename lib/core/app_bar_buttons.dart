@@ -8,6 +8,30 @@ import '../page/profile.dart';
 import '../product/color/project_color.dart';
 import '../product/util/constans.dart';
 
+class ProfileArrowLeft extends StatelessWidget {
+  const ProfileArrowLeft({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: Icon(
+        Icons.arrow_circle_left_rounded,
+        size: ProjectNum().blurRadius * 6,
+        shadows: [
+          BoxShadow(
+            blurRadius: ProjectNum().blurRadius * 2,
+            color: ProjectColor().black2,
+            offset: const Offset(0, 0),
+          ),
+        ],
+      ),
+      onPressed: () {
+        Navigator.pop(context);
+      },
+    );
+  }
+}
+
 class ArrowLeft extends StatelessWidget {
   const ArrowLeft({super.key});
 
@@ -40,30 +64,6 @@ class ArrowLeft extends StatelessWidget {
             },
           ),
         );
-      },
-    );
-  }
-}
-
-class ProfileArrowLeft extends StatelessWidget {
-  const ProfileArrowLeft({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return IconButton(
-      icon: Icon(
-        Icons.arrow_circle_left_rounded,
-        size: ProjectNum().blurRadius * 6,
-        shadows: [
-          BoxShadow(
-            blurRadius: ProjectNum().blurRadius * 2,
-            color: ProjectColor().black2,
-            offset: const Offset(0, 0),
-          ),
-        ],
-      ),
-      onPressed: () {
-        Navigator.pop(context);
       },
     );
   }
