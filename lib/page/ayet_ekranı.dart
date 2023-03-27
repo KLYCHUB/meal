@@ -46,33 +46,7 @@ class _AyetOkumaEkraniState extends State<AyetOkumaEkrani> {
         backgroundColor: ProjectColor().leylak,
         title: SizedBox(
           height: ProjectNum().height45,
-          child: TextFormField(
-            controller: _searchController,
-            onChanged: _filterSureBilgileri,
-            cursorColor: ProjectColor().indicatorBG,
-            style: TextStyle(
-              color: ProjectColor().indicatorBG,
-              fontSize: ProjectNum().titleMedium,
-            ),
-            decoration: InputDecoration(
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: ProjectColor().ddddddColor,
-                ),
-              ),
-              hintStyle: TextStyle(
-                color: ProjectColor().indicatorBG,
-              ),
-              border: const OutlineInputBorder(),
-              prefixIcon: Icon(Icons.search, color: ProjectColor().indicatorBG),
-              isDense: true,
-              filled: true,
-              hintText: Karma().textFieldText2,
-              fillColor: ProjectColor().ddddddColor,
-              contentPadding: ProjectEdgeInsets().horizontal20,
-              labelStyle: TextStyle(color: ProjectColor().indicatorBG),
-            ),
-          ),
+          child: _TexrField(),
         ),
       ),
       backgroundColor: ProjectColor().leylak,
@@ -184,6 +158,38 @@ class _AyetOkumaEkraniState extends State<AyetOkumaEkrani> {
         ),
       ),
       bottomNavigationBar: const ProjectBottomNavBar(),
+    );
+  }
+
+  //----------------------------------------------------------------------------
+
+  TextFormField _TexrField() {
+    return TextFormField(
+      controller: _searchController,
+      onChanged: _filterSureBilgileri,
+      cursorColor: ProjectColor().indicatorBG,
+      style: TextStyle(
+        color: ProjectColor().indicatorBG,
+        fontSize: ProjectNum().titleMedium,
+      ),
+      decoration: InputDecoration(
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: ProjectColor().ddddddColor,
+          ),
+        ),
+        hintStyle: TextStyle(
+          color: ProjectColor().indicatorBG,
+        ),
+        border: const OutlineInputBorder(),
+        prefixIcon: Icon(Icons.search, color: ProjectColor().indicatorBG),
+        isDense: true,
+        filled: true,
+        hintText: Karma().textFieldText2,
+        fillColor: ProjectColor().ddddddColor,
+        contentPadding: ProjectEdgeInsets().horizontal20,
+        labelStyle: TextStyle(color: ProjectColor().indicatorBG),
+      ),
     );
   }
 }

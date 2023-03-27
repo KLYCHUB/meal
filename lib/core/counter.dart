@@ -13,14 +13,12 @@ class CustomCounter extends StatefulWidget {
 class _CustomCounterState extends State<CustomCounter> {
   int _countValue_1 = 0;
 
-  // add this method to load the saved count value when the widget is created
   @override
   void initState() {
     super.initState();
     _loadCountValue();
   }
 
-  // load the saved count value from shared preferences
   void _loadCountValue() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
@@ -28,7 +26,6 @@ class _CustomCounterState extends State<CustomCounter> {
     });
   }
 
-  // save the current count value to shared preferences
   void _saveCountValue() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setInt('countValue', _countValue_1);
@@ -38,12 +35,12 @@ class _CustomCounterState extends State<CustomCounter> {
     if (isIncrement) {
       setState(() {
         _countValue_1 += 1;
-        _saveCountValue(); // save the count value when it changes
+        _saveCountValue();
       });
     } else {
       setState(() {
         _countValue_1 = 0;
-        _saveCountValue(); // save the count value when it changes
+        _saveCountValue();
       });
       if (_countValue_1 < 0) {
         _countValue_1 = 0;
